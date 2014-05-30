@@ -1,0 +1,74 @@
+﻿@model dynamic
+
+    @{
+        ViewBag.Title = "Cargos";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <!-- Page heading -->
+    <div class="page-head">
+        <!-- Page heading -->
+        <h2 class="pull-left">
+            Cadastro de cargos
+            <!-- page meta -->
+            <span class="page-meta">Cadastro e atualização de cargos</span>
+        </h2>
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+            <a href="~/Cadastros/Index/"><i class="fa fa-home"></i> Cadastro</a>
+            <!-- Divider -->
+            <span class="divider">/</span>
+            <a class="bread-current" href="#">Cargos</a>
+        </div>
+        <div class="clearfix"></div>
+    </div><!--/ Page heading ends -->
+    <!-- Matter -->
+    <div class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="widget wgreen">
+                        <div class="widget-head">
+                            <div class="pull-left">Cadastro de Cargo</div>
+                            <div class="widget-icons pull-right">
+                                <a class="wminimize" href="#"><i class="fa fa-chevron-up"></i></a>
+                                <a class="wclose" href="#"><i class="fa fa-times"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="padd">
+                                <h6>Cargo</h6>
+                                <hr>
+                                <!-- Form starts.  -->
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Codigo</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control" name="codigo" type="text" placeholder="Codigo do cargo">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Nome</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control" name="nome" type="text" placeholder="Nome do cargo">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Descricao</label>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" name="descricao" placeholder="Descrição do cargo" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-8">
+                                            <button class="btn btn-primary" type="button">Salvar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/ Matter ends -->

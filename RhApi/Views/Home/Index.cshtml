@@ -1,31 +1,142 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<!-- Page heading -->
+<div class="page-head">
+    <!-- Page heading -->
+    <h2 class="pull-left">
+        Dashboard
+        <!-- page meta -->
+        <span class="page-meta">Detalhes dos cadastros</span>
+    </h2>
+    <!-- Breadcrumb -->
+    <div class="bread-crumb pull-right">
+        <a href="~/Home/Index/"><i class="fa fa-home"></i>Inicio</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="~/Home/Index/" class="bread-current">Dashboard</a>
+    </div>
+    <div class="clearfix"></div>
+</div><!--/ Page heading ends -->
+<!-- Matter -->
+<div class="matter">
+    <div class="container">
+        <!-- Dashboard Graph starts -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Curve chart starts -->
+                <div class="widget wgreen">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+                    <div class="widget-head">
+                        <div class="pull-left">Demissões por contratações</div>
+                        <div class="widget-icons pull-right">
+                            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+                    <div class="widget-content">
+                        <div class="padd">
+
+                            <div id="curve-chart"></div>
+
+                            <hr />
+
+                            <div id="hoverdata">
+                                Contrataçoes e demissões
+                                (<span id="x">0</span>, <span id="y">0</span>). <span id="clickdata"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Curve chart ends -->
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</div><!--/ Matter ends -->
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var sin = [], cos = [];
+            for (var i = 0; i < 14; i += 0.5) {
+                sin.push([i, Math.sin(i)* 100]);
+                cos.push([i, Math.cos(i) * 100]);
+            }
+
+            var plot = $.plot($("#curve-chart"),
+                   [{ data: sin, label: "demissões (x)" }, { data: cos, label: "contratações(x)" }], {
+                       series: {
+                           lines: {
+                               show: true,
+                               fill: true,
+                               fillColor: {
+                                   colors: [{
+                                       opacity: 0.05
+                                   }, {
+                                       opacity: 0.01
+                                   }]
+                               }
+                           },
+                           points: { show: true }
+                       },
+                       grid: { hoverable: true, clickable: true, borderWidth: 0 },
+                       yaxis: { min: -100, max: 100 },
+                       colors: ["#fa3031", "#43c83c"]
+                   });
+
+
+            function showTooltip(x, y, contents) {
+                $('<div id="tooltip">' + contents + '</div>').css({
+                    position: 'absolute',
+                    display: 'none',
+                    top: y + 5,
+                    width: 100,
+                    left: x + 5,
+                    border: '1px solid #000',
+                    padding: '2px 8px',
+                    color: '#ccc',
+                    'background-color': '#000',
+                    opacity: 0.9
+                }).appendTo("body").fadeIn(200);
+            }
+
+            var previousPoint = null;
+            $("#curve-chart").bind("plothover", function (event, pos, item) {
+                $("#x").text(pos.x.toFixed(2));
+                $("#y").text(pos.y.toFixed(2));
+
+                if (item) {
+                    if (previousPoint != item.dataIndex) {
+                        previousPoint = item.dataIndex;
+
+                        $("#tooltip").remove();
+                        var x = item.datapoint[0].toFixed(2),
+                            y = item.datapoint[1].toFixed(2);
+
+                        showTooltip(item.pageX, item.pageY, item.series.label + " of " + x + " = " + y);
+                    }
+                }
+                else {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            });
+
+            $("#curve-chart").bind("plotclick", function (event, pos, item) {
+                if (item) {
+                    $("#clickdata").text("voce clicou no ponto " + item.dataIndex + " in " + item.series.label + ".");
+                    plot.highlight(item.series, item.datapoint);
+                }
+            });
+
+        });
+
+        /* Curve chart ends */
+
+    </script>
+
+}

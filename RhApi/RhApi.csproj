@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CadastroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,8 +174,23 @@
     <Content Include="Content\bootstrap-switch.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\delete.gif" />
+    <Content Include="Content\favicon\favicon.png" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\gritter\gritter.png" />
+    <Content Include="Content\gritter\ie-spacer.gif" />
+    <Content Include="Content\icons\android.png" />
+    <Content Include="Content\icons\chrome.png" />
+    <Content Include="Content\icons\firefox.png" />
+    <Content Include="Content\icons\ie.png" />
+    <Content Include="Content\icons\ios.png" />
+    <Content Include="Content\icons\linux.png" />
+    <Content Include="Content\icons\mac.png" />
+    <Content Include="Content\icons\metro.png" />
+    <Content Include="Content\icons\opera.png" />
+    <Content Include="Content\icons\safari.png" />
+    <Content Include="Content\icons\windows.png" />
     <Content Include="Content\images\animated-overlay.gif" />
     <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -191,9 +207,70 @@
     <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.gritter.css" />
+    <Content Include="Content\logotipo.png" />
+    <Content Include="Content\photos\s1.jpg" />
+    <Content Include="Content\photos\s10.jpg" />
+    <Content Include="Content\photos\s2.jpg" />
+    <Content Include="Content\photos\s3.jpg" />
+    <Content Include="Content\photos\s4.jpg" />
+    <Content Include="Content\photos\s5.jpg" />
+    <Content Include="Content\photos\s6.jpg" />
+    <Content Include="Content\photos\s7.jpg" />
+    <Content Include="Content\photos\s8.jpg" />
+    <Content Include="Content\photos\s9.jpg" />
+    <Content Include="Content\photos\t1.jpg" />
+    <Content Include="Content\photos\t10.jpg" />
+    <Content Include="Content\photos\t2.jpg" />
+    <Content Include="Content\photos\t3.jpg" />
+    <Content Include="Content\photos\t4.jpg" />
+    <Content Include="Content\photos\t5.jpg" />
+    <Content Include="Content\photos\t6.jpg" />
+    <Content Include="Content\photos\t7.jpg" />
+    <Content Include="Content\photos\t8.jpg" />
+    <Content Include="Content\photos\t9.jpg" />
     <Content Include="Content\prettyPhoto.css" />
+    <Content Include="Content\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Content\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Content\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Content\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Content\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Content\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Content\prettyPhoto\light_square\sprite.png" />
     <Content Include="Content\rateit.css" />
+    <Content Include="Content\star.gif" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\user.jpg" />
     <Content Include="Content\widgets.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -237,7 +314,9 @@
     <Content Include="Scripts\sparkline-index.js" />
     <Content Include="Scripts\sparklines.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -269,6 +348,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Cadastro\Cargos.cshtml" />
+    <Content Include="Views\Cadastro\Funcoes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

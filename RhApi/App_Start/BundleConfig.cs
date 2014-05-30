@@ -9,7 +9,12 @@ namespace RhApi
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                      "~/Scripts/jquery-{version}.js",
+                      "~/Scrips/jquery-ui.min.js",
+                      "~/Scripts/jquery.flot.js",
+                      "~/Scripts/jquery.flot.resize.js",
+                      "~/Scripts/jquery.flot.pie.js",
+                      "~/Scripts/jquery.flot.stack.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -22,6 +27,10 @@ namespace RhApi
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
+                      "~/Scripts/excanvas.min.js",
+                      "~/Scripts/sparkline.js",
+                      "~/Scripts/sparkline-index.js",
+                      "~/Scripts/filter.js",
                       "~/Scripts/custom.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
